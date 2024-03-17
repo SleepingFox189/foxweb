@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon</title>
+    <link rel="icon" href="tab.png" type="image/png" sizes="16x16"> <!-- Add favicon -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+    <style>
+        @keyframes rainbow {
+            0% {border-color: red;}
+            14% {border-color: orange;}
+            28% {border-color: yellow;}
+            42% {border-color: lime;}
+            57% {border-color: blue;}
+            71% {border-color: indigo;}
+            85% {border-color: violet;}
+            100% {border-color: red;}
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, blue, black);
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            background: linear-gradient(to bottom, black, blue);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+            cursor: pointer;
+            animation: rainbow 2s linear infinite; /* Add this line */
+        }
+        .discord {
+            font-size: 50px; /* Increase font size */
+            color: white;
+        }
+        .coming-soon {
+            font-size: 50px; /* Increase font size */
+            font-weight: bold;
+            background: linear-gradient(to bottom, blue, green); /* Add gradient */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .clipboard {
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .copied {
+            font-size: 24px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button onclick="window.location.href='https://discord.gg/YKf223ZDsQ'">
+            <span class="discord">Discord</span>
+        </button>
+        <p class="coming-soon">Script Coming Soon! | <span class="clipboard" onclick="copyToClipboard()">📋</span><span class="copied" id="copied">Copied!</span></p>
+    </div>
+    <audio src="music.mp3" autoplay loop></audio>
+    <script>
+        function copyToClipboard() {
+            const textToCopy = 'print("Coming Soon!")';
+            navigator.clipboard.writeText(textToCopy).then(function() {
+                document.getElementById('copied').style.display = 'inline';
+                setTimeout(function() {
+                    document.getElementById('copied').style.display = 'none';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
